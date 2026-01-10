@@ -48,6 +48,53 @@ nav{
 }
 
 /* HERO */
+  .hero {
+  text-align: center;
+  padding: 80px 20px 60px;
+  background: radial-gradient(circle at top, #7b3fe4, #3a0c7d);
+}
+
+.hero-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 40px;
+  text-shadow: 0 0 12px rgba(255,215,0,0.6);
+}
+
+.hero-image-wrapper {
+  max-width: 420px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero-image {
+  width: 100%;
+  border-radius: 28px;
+  box-shadow:
+    0 0 25px rgba(255,215,0,0.45),
+    0 0 60px rgba(180,120,255,0.35);
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Efecto flotante */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* Glitter overlay */
+.hero-image-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/img/glitter.png");
+  opacity: 0.25;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
 .hero{
   min-height:100vh;
   display:flex;
