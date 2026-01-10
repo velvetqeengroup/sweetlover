@@ -268,6 +268,19 @@ section{
   color: #f1f1f1;
 }
 
+
+
+  <script>
+  const heroImg = document.querySelector('.hero-image');
+  window.addEventListener('scroll', () => {
+    const trigger = window.innerHeight * 0.8;
+    const imgTop = heroImg.getBoundingClientRect().top;
+    if (imgTop < trigger) {
+      heroImg.classList.add('show');
+    }
+  });
+</script>
+
 </style>
 </head>
 
