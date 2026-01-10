@@ -1,258 +1,395 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SweetLover - Velvet Qeen Agency</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SweetLover | Velvet Queen Agency</title>
+
+<!-- Fuentes -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+:root{
+  --gold:#D4AF37;
+  --purple:#1e0b36;
+  --purple-soft:#4b1b6b;
+  --white:#ffffff;
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:'Lato',sans-serif;
+  background:var(--purple);
+  color:var(--white);
+  overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  padding:20px 40px;
+  background:rgba(30,11,54,.85);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+
+.logo{
+  color:var(--gold);
+  font-weight:700;
+  letter-spacing:2px;
+}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:120px 20px 60px;
+  background:radial-gradient(circle,var(--purple-soft),var(--purple));
+}
+
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:3.5rem;
+  text-shadow:0 0 20px rgba(212,175,55,.4);
+}
+
+.hero p{
+  max-width:600px;
+  margin-top:20px;
+  font-size:1.2rem;
+  color:#e6e6e6;
+}
+
+/* SECTIONS */
+section{
+  padding:80px 20px;
+}
+
+.section-title{
+  text-align:center;
+  font-size:2.5rem;
+  color:var(--gold);
+  margin-bottom:50px;
+}
+
+/* CARDS */
+.grid{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+.card{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(212,175,55,.3);
+  border-radius:20px;
+  padding:30px;
+  text-align:center;
+  backdrop-filter:blur(12px);
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  border-color:var(--gold);
+}
+
+.card i{
+  font-size:2.5rem;
+  color:var(--gold);
+  margin-bottom:15px;
+}
+
+/* LUXURY SECTION */
+.luxury{
+  background:linear-gradient(135deg,#1a0b2e,#3b146b);
+  border-top:1px solid rgba(212,175,55,.4);
+  border-bottom:1px solid rgba(212,175,55,.4);
+}
+
+.luxury-container{
+  max-width:1200px;
+  margin:auto;
+}
+
+.luxury-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:30px;
+}
+
+@media(min-width:768px){
+  .luxury-grid{grid-template-columns:1fr 1fr}
+}
+
+.luxury-card{
+  background:rgba(26,11,46,.6);
+  border:1px solid rgba(176,132,245,.35);
+  border-radius:18px;
+  padding:25px;
+}
+
+.luxury-card h3{
+  color:var(--gold);
+  margin-bottom:15px;
+}
+
+.luxury-card ul{
+  list-style:none;
+  display:grid;
+  gap:12px;
+}
+
+.luxury-card li{
+  background:rgba(59,20,107,.35);
+  padding:12px 15px;
+  border-radius:14px;
+  font-size:.95rem;
+}
+.gold-glow {
+  color: var(--gold);
+  text-shadow: 0 0 25px rgba(212,175,55,.7);
+}
+
+.download-luxury {
+  padding: 100px 20px;
+  background: radial-gradient(circle at top, #4b1b6b, #1e0b36);
+  text-align: center;
+}
+
+.download-container {
+  max-width: 700px;
+  margin: auto;
+}
+
+.download-subtitle {
+  margin: 25px 0 40px;
+  font-size: 1.1rem;
+  color: #e6e6e6;
+}
+
+.store-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+/* ANDROID BUTTON */
+.store-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 36px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid var(--gold);
+  transition: all .35s ease;
+}
+
+.store-btn i {
+  font-size: 1.6rem;
+}
+
+.android {
+  background: linear-gradient(135deg, #1b5e20, #3ddc84);
+  box-shadow: 0 0 25px rgba(61,220,132,.45);
+}
+
+/* GLITTER EFFECT */
+.glitter {
+  position: relative;
+  overflow: hidden;
+}
+
+.glitter::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,.35),
+    transparent
+  );
+  transform: rotate(25deg);
+  animation: glitterMove 3s infinite;
+}
+
+@keyframes glitterMove {
+  0% { transform: translateX(-100%) rotate(25deg); }
+  100% { transform: translateX(100%) rotate(25deg); }
+}
+
+.store-btn:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 0 35px rgba(212,175,55,.7);
+}
+
+/* IMPORTANT BOX */
+.important-box {
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(212,175,55,.4);
+  border-radius: 20px;
+  padding: 28px;
+  text-align: left;
+  box-shadow: 0 20px 40px rgba(0,0,0,.4);
+}
+
+.important-box h3 {
+  color: var(--gold);
+  margin-bottom: 15px;
+}
+
+.important-box ul {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  color: #f1f1f1;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="logo">SweetLover</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>SweetLover</h1>
+
+<section class="hero">
+  <h1 class="hero-title">Sweet Lover</h1>
+
+  <div class="hero-image-wrapper">
+    <img 
+      src="assets/img/sweetlover-hero.png" 
+      alt="Habla, coquetea y diviértete con SweetLover"
+      class="hero-image"
+    />
+  </div>
+</section>
+
+  <p>Genera ingresos desde casa con videollamadas, chat y conexión internacional.</p>
+</section>
+
+
+
+   
+
+
+<!-- REQUISITOS -->
+<section>
+  <h2 class="section-title">Requisitos</h2>
+  <div class="grid">
+    <div class="card"><i class="fas fa-female"></i><p>Mujer +18 años</p></div>
+    <div class="card"><i class="fas fa-clock"></i><p>4–6 horas diarias</p></div>
+    <div class="card"><i class="fas fa-mobile-alt"></i><p>Celular con buena cámara</p></div>
+    <div class="card"><i class="fas fa-home"></i><p>Espacio tranquilo + internet</p></div>
+  </div>
+</section>
+
+
+
+<section class="download-luxury" id="descarga">
+  
+  <h2 class="section-title gold-glow">Descarga y Registro</h2>
+
+  <div class="download-container glass-card">
+
+    <p class="download-subtitle">
+      Empieza hoy mismo a generar ingresos desde casa con <strong>SweetLover</strong> 💎
+    </p>
+
+    <div class="store-buttons">
+      <a href="https://play.google.com/store/apps/details?id=com.fine202.xiaosu"
+         target="_blank"
+         class="store-btn android glitter">
+        <i class="fab fa-android"></i>
+        Descargar para Android
+      </a>
+    </div>
+
+    <div class="important-box">
+      <h3>⚠️ Indicaciones importantes</h3>
+      <ul>
+        <li>✔️ Regístrate con genero <strong>FEMENINO</strong></li>
+        <li>✔️ Usa un <strong>nickname que NO sea tu nombre real</strong></li>
+        <li>✔️ <strong>No uses emojis</strong> ni nombres sugestivos</li>
+      </ul>
+    </div>
+
+  </div>
+
+</section>
+
+
     
-    <!-- Fuentes de Google: Playfair Display (Lujo) y Lato (Legibilidad) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
 
-    <!-- GSAP para animaciones -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-    <style>
-        :root {
-            --gold: #D4AF37;
-            --gold-light: #F9E79F;
-            --purple-deep: #1e0b36;
-            --purple-accent: #6a0dad;
-            --purple-light: #9b59b6;
-            --white: #ffffff;
-            --text-dark: #2c2c2c;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(212, 175, 55, 0.3);
-        }
+<!-- PASOS PARA LA APROBACIÓN DE TU PERFIL -->
+<section>
+  <h2 class="section-title">PASOS PARA LA APROBACIÓN DE TU PERFIL</h2>
+  <div class="grid">
+    <div class="card"><i class="fas fa-camera"></i><p>Foto real, reciente y sin filtros</p></div>
+    <div class="card"><i class="fas fa-eye"></i><p>Revisar estado de la cuenta</p></div>
+    <div class="card"><i class="fas fa-sync-alt"></i><p>Actualizar la página</p></div>
+    <div class="card"><i class="fas fa-check-circle"></i><p>“Verified” = lista para trabajar</p></div>
+  </div>
+</section>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<!-- WORK TIPS -->
+<section class="luxury">
+  <div class="luxury-container">
+    <h2 class="section-title">Work Tips & Reglas</h2>
 
-        body {
-            font-family: 'Lato', sans-serif;
-            background-color: var(--purple-deep);
-            color: var(--white);
-            overflow-x: hidden;
-            scroll-behavior: smooth; /* Base smooth scroll */
-        }
+    <div class="luxury-grid">
+      <div class="luxury-card">
+        <h3>💥 Consejos</h3>
+        <ul>
+          <li>⏰ Más de 4h online = más tráfico</li>
+          <li>🎁 Vende fotos y videos</li>
+          <li>💡 Regalos de menor a mayor valor</li>
+          <li>📸 Fotos HD y atractivas</li>
+          <li>💬 Usa scripts de coqueteo</li>
+        </ul>
+      </div>
 
-        /* Tipografía de Lujo */
-        h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-        }
+      <div class="luxury-card">
+        <h3>🚫 Reglas</h3>
+        <ul>
+          <li>No colgar llamadas</li>
+          <li>No ignorar usuarios</li>
+          <li>No pantalla negra</li>
+          <li>No compartir redes o contactos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-        /* Fondo con destellos (Partículas) */
-        #canvas-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        /* Navbar flotante */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 20px 50px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1000;
-            background: rgba(30, 11, 54, 0.8);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--glass-border);
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--gold);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-            position: relative;
-            background: radial-gradient(circle at center, #4b1b6b 0%, #1e0b36 70%);
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 20px;
-            color: var(--white);
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
-            opacity: 0; /* Animación inicial */
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 40px;
-            color: #e0e0e0;
-            line-height: 1.6;
-        }
-
-        .cta-button {
-            padding: 15px 40px;
-            background: linear-gradient(45deg, var(--gold), #b8860b);
-            color: var(--purple-deep);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            text-decoration: none;
-            box-shadow: 0 0 15px var(--gold);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .cta-button:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 30px var(--gold);
-        }
-
-        /* Secciones Generales */
-        section {
-            padding: 100px 20px;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            color: var(--gold);
-            margin-bottom: 60px;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 3px;
-            background: var(--gold);
-            margin: 20px auto;
-        }
-
-        /* Tarjetas de Cristal (Glassmorphism) */
-        .glass-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 40px;
-            backdrop-filter: blur(12px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            margin-bottom: 30px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .glass-card::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
-            transform: rotate(45deg);
-            animation: shine 6s infinite;
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) rotate(45deg); }
-        }
-
-        /* Requisitos Grid */
-        .requirements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .req-item {
-            text-align: center;
-            padding: 30px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 15px;
-            transition: 0.3s;
-        }
-
-        .req-item:hover {
-            border-color: var(--gold);
-            transform: translateY(-10px);
-        }
-
-        .req-item i {
-            font-size: 2.5rem;
-            color: var(--gold);
-            margin-bottom: 20px;
-        }
-
-        /* Sección de Descargas (iOS vs Android) */
-        .download-section {
-            background: linear-gradient(180deg, var(--purple-deep) 0%, #120522 100%);
-        }
-
-        .platforms-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 50px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .platform-card {
-            flex: 1;
-            min-width: 300px;
-            max-width: 500px;
-            background: linear-gradient(145deg, rgba(30,11,54,0.9), rgba(106,13,173,0.4));
-            border-radius: 30px;
-            padding: 40px;
-            text-align: center;
-            border: 2px solid var(--gold);
-            position: relative;
-        }
-
-        .platform-icon {
-            font-size: 4rem;
-            margin-bottom: 20px;
-        }
-
-        .ios-icon { color: #fff; text-shadow: 0 0 20px rgba(255,255,255,0.5); }
-        .android-icon { color: #3ddc84; text-shadow: 0 0 20px rgba(61, 220, 132, 0.5); }
-
-        .steps-list {
-            text-align: left;
-            margin: 30px 0;
-            padding-left: 20px;
-        }
-
-        .steps-list li {
-            margin-bottom: 15px
+</body>
+</html>
