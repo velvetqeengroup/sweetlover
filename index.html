@@ -386,7 +386,24 @@ section{
   </div>
 </section>
    </script>
+<script>
+  const heroImg = document.querySelector('.hero-image');
+
+  function revealHero(){
+    const trigger = window.innerHeight * 0.85;
+    const imgTop = heroImg.getBoundingClientRect().top;
+    if(imgTop < trigger){
+      heroImg.classList.add('show');
+    }
+  }
+
+  window.addEventListener('scroll', revealHero);
+  window.addEventListener('load', revealHero);
+</script>
+
 </body>
+
+  
 </html>
 
 </body>
